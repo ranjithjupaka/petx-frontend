@@ -45,13 +45,16 @@ const Product = (props) => {
   return (
     <Layout className='container-fuild'>
       <div className='row '>
-        <div className='col-8'>
+        <div className='col-xl-5 col-md-4 col-sm-5 col-10 ml-5'>
           {product && <ProductCard product={product} viewProductBtn={false} />}
         </div>
-        <div className='col-4'>
-          <h4>Related Products</h4>
+        <div className='col-6'>
+          <h4 className='mb-3 mt-2 ml-5'>Related Products</h4>
           {relatedProduct.map((p, i) => (
-            <div className='mb-3'>
+            <div
+              className='col-xl-8 col-md-8 col-sm-6 ml-5 mt-3 mb-3'
+              style={{ minWidth: '250px' }}
+            >
               <ProductCard product={p} key={i} />
             </div>
           ))}
