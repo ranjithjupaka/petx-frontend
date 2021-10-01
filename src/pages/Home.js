@@ -42,22 +42,24 @@ const Home = () => {
 
     return (
       <Layout className='container-fuild'>
-        <Search />
-        <h2 className='mb-4 ml-5'>New arrivals</h2>
-        <div className='row'>
-          {productsByArrival.map((product, i) => (
-            <div className='col-3 mb-3 ml-5'>
-              <ProductCard key={i} product={product} />
-            </div>
-          ))}
-        </div>
-        <h2 className='mb-4 ml-5'>Best sellers</h2>
-        <div className='row '>
-          {productsBySell.map((product, i) => (
-            <div className='col-3 mb-3 ml-5'>
-              <ProductCard key={i} product={product} />
-            </div>
-          ))}
+        <div className='container-fluid rounded p-5'>
+          <Search />
+          <h2 className='mb-4 ml-5'>New arrivals</h2>
+          <div className='row'>
+            {productsByArrival.map((product, i) => (
+              <div className='col-xl-3 col-md-4 col-sm-6 mb-3 '>
+                <ProductCard key={i} product={product} />
+              </div>
+            ))}
+          </div>
+          <h2 className='mb-4 ml-5'>Best sellers</h2>
+          <div className='row '>
+            {productsBySell.map((product, i) => (
+              <div className='col-xl-3 col-md-4 col-sm-6 mb-3'>
+                <ProductCard key={i} product={product} />
+              </div>
+            ))}
+          </div>
         </div>
       </Layout>
     )

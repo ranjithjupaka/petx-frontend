@@ -79,11 +79,14 @@ const searchedProducts = (results = []) => {
 }
 
 const searchForm = () => (
-  <form onSubmit={e => handleSubmit(e)}>
+  <form onSubmit={(e) => handleSubmit(e)}>
     <span className='input-group-text'>
       <div className='input-group input-group-lg'>
         <div className='input-group-prepend'>
-          <select className='btn  mr-4' onChange={handleChange('category')}>
+          <select
+            className='btn  mr-4 mt-2 mb-2'
+            onChange={handleChange('category')}
+          >
             <option value='All'>Pick a Category</option>
             {categories.data &&
               categories.data.length > 0 &&
@@ -97,20 +100,25 @@ const searchForm = () => (
 
         <input
           type='search'
-          className='form-control'
+          className='form-control mt-2 mb-2'
           onChange={handleChange('search')}
           placeholder='Search by Name'
         />
       </div>
-      <div className='btn input-group-append'>
-        <button className='input-group-text' style={{border:'2px solid white'}}>Search</button>
+      <div className='btn input-group-append '>
+        <button
+          className='input-group-text btn-sm px-4'
+          style={{ border: '2px solid white' }}
+        >
+          Search
+        </button>
       </div>
     </span>
   </form>
 )
   return (
     <div className='row'>
-      <div className='container mb-3'>{searchForm()}</div>
+      <div className='container mb-3 col-sm-8 '>{searchForm()}</div>
       <div className='container-fluid mb-3 '>{searchedProducts(results)}</div>
     </div>
   )

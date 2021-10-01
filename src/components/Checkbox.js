@@ -26,7 +26,7 @@ const Checkbox = ({categories,handleFilters}) => {
 
 
     return (
-      <ui>
+      <ui >
         <h4>Filter by Categories</h4>
         {categories.data.map((cat, i) => (
           <li key={i} className="ml-3">

@@ -17,7 +17,7 @@ const isActive = (history,path) => {
 const Header = ({history}) => {
     return (
       <header>
-        <ul className='nav nav-tabs bg-primary'>
+        <ul className='nav nav-tabs bg-primary d-flex justify-content-center'>
           <li className='nav-item'>
             <Link className='nav-link' style={isActive(history, '/')} to='/'>
               Home

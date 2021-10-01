@@ -41,7 +41,7 @@ const ProductCard = ({
     if (value) {
       return (
         <button
-          className='btn btn-outline-warning mt-2 mb-2'
+          className='btn btn-outline-warning mt-2 mb-2  btn-sm px-4'
           onClick={() => addToCart()}
         >
           Add to Cart
@@ -54,11 +54,11 @@ const ProductCard = ({
     if (value) {
       return (
         <button
-          className='btn btn-outline-danger mt-2 mb-2'
+          className='btn btn-outline-danger mt-2 mb-2  btn-sm px-4'
           onClick={() => {
-            removeItem(product._id); 
-            setRun(!run);
-            }}
+            removeItem(product._id)
+            setRun(!run)
+          }}
         >
           Remove to Cart
         </button>
@@ -113,7 +113,7 @@ const ProductCard = ({
         <hr />
         <Link to={`/product/${product._id}`}>
           {viewProductBtn && (
-            <button className='btn btn-outline-primary mt-2 mb-2 mr-3'>
+            <button className='btn btn-outline-primary mt-2 mb-2 mr-3 btn-sm px-4'>
               View Product
             </button>
           )}

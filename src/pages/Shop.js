@@ -111,14 +111,16 @@ const handleFilters = (filters,sortBy) => {
    return (
      <Layout className='container-fuild'>
        <div className='row'>
-         <div className='col-3'>
+         <div className='col-xl-3 col-md-3 col-sm-4 ml-3 '>
            {categories.data && categories.data.length > 0 && (
-             <Checkbox
-               categories={categories}
-               handleFilters={(filters) => handleFilters(filters, 'category')}
-             />
+             <div className='ml-3'>
+               <Checkbox
+                 categories={categories}
+                 handleFilters={(filters) => handleFilters(filters, 'category')}
+               />
+             </div>
            )}
-           <div>
+           <div className='ml-3'>
              <h4>Filter by prices</h4>
              <RadioButton
                prices={prices}
@@ -126,11 +128,12 @@ const handleFilters = (filters,sortBy) => {
              />
            </div>
          </div>
+
          <div className='col-8'>
-           <h2 className='mb-4'>Products</h2>
+           <h2 className='mb-4 ml-3'>Products</h2>
            <div className='row'>
              {filterResults.map((product, i) => (
-               <div className='col-4 mb-3 '>
+               <div className='col-xl-3 col-md-4 col-sm-6 mb-3 ml-5 '>
                  <ProductCard key={i} product={product} />
                </div>
              ))}
