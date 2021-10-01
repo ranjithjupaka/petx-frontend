@@ -1,8 +1,8 @@
-import { api } from '../configs/api'
+
 import queryString from 'query-string'
 
 export const createCategory = (userId,token,category) => {
-  return fetch(`${api}/category/create/${userId}`, {
+  return fetch(`https://petx-ecommercesite.herokuapp.com/api/category/create/${userId}`, {
     method: 'POST',
     headers: {
       accept: 'application/json',
@@ -19,7 +19,7 @@ export const createCategory = (userId,token,category) => {
 
 export const createProduct = (userId, token, product) => {
   console.log(product);
-  return fetch(`${api}/product/create/${userId}`, {
+  return fetch(`https://petx-ecommercesite.herokuapp.com/api/product/create/${userId}`, {
     method: 'POST',
     headers: {
       Authorization: `Bearer ${token}`,
@@ -33,7 +33,7 @@ export const createProduct = (userId, token, product) => {
 }
 
 export const getCategories = () => {
-  return fetch(`${api}/categories`, {
+  return fetch(`https://petx-ecommercesite.herokuapp.com/api/categories`, {
     method: 'GET',
   })
     .then((response) => response.json())
@@ -43,7 +43,7 @@ export const getCategories = () => {
 }
 
 export const getProducts = (sortBy) => {
-  return fetch(`${api}/products?sortBy=${sortBy}&order=desc&limit=6`, {
+  return fetch(`https://petx-ecommercesite.herokuapp.com/api/products?sortBy=${sortBy}&order=desc&limit=6`, {
     method: 'GET',
   })
     .then((response) => response.json())
@@ -56,7 +56,7 @@ export const getFilteredProducts = (skip,limit, filters={}) => {
   const data = {
     skip,limit,filters
   }
-  return fetch(`${api}/products/by/search`, {
+  return fetch(`https://petx-ecommercesite.herokuapp.com/api/products/by/search`, {
     method: 'POST',
     headers: {
       accept: 'application/json',
@@ -72,7 +72,7 @@ export const getFilteredProducts = (skip,limit, filters={}) => {
 
 export const list = (params) => {
   const query = queryString.stringify(params);
-  return fetch(`${api}/products/search?${query}`, {
+  return fetch(`https://petx-ecommercesite.herokuapp.com/api/products/search?${query}`, {
     method: 'GET',
   })
     .then((response) => response.json())
@@ -82,7 +82,7 @@ export const list = (params) => {
 }
 
 export const readProduct = (productId) => {
-  return fetch(`${api}/product/${productId}`, {
+  return fetch(`https://petx-ecommercesite.herokuapp.com/api/product/${productId}`, {
     method: 'GET',
   })
     .then((response) => response.json())
@@ -92,7 +92,7 @@ export const readProduct = (productId) => {
 }
 
 export const realatedList = (productId) => {
-  return fetch(`${api}/products/related/${productId}`, {
+  return fetch(`https://petx-ecommercesite.herokuapp.com/api/products/related/${productId}`, {
     method: 'GET',
   })
     .then((response) => response.json())
@@ -102,7 +102,7 @@ export const realatedList = (productId) => {
 }
 
 export const getBraintreeToken = (userId, token) => {
-  return fetch(`${api}/braintree/getToken/${userId}`, {
+  return fetch(`https://petx-ecommercesite.herokuapp.com/api/braintree/getToken/${userId}`, {
     method: 'GET',
     headers: {
       accept: 'application/json',
@@ -117,7 +117,7 @@ export const getBraintreeToken = (userId, token) => {
 }
 
 export const processPayment = (userId, token,paymentData) => {
-  return fetch(`${api}/braintree/payment/${userId}`, {
+  return fetch(`https://petx-ecommercesite.herokuapp.com/api/braintree/payment/${userId}`, {
     method: 'POST',
     headers: {
       accept: 'application/json',
@@ -133,7 +133,7 @@ export const processPayment = (userId, token,paymentData) => {
 }
 
 export const createOrder = (userId, token, orderData) => {
-  return fetch(`${api}/order/create/${userId}`, {
+  return fetch(`https://petx-ecommercesite.herokuapp.com/api/order/create/${userId}`, {
     method: 'POST',
     headers: {
       accept: 'application/json',
@@ -150,7 +150,7 @@ export const createOrder = (userId, token, orderData) => {
 
 
 export const listAllOrders = (userId, token) => {
-  return fetch(`${api}/order/list/${userId}`, {
+  return fetch(`https://petx-ecommercesite.herokuapp.com/api/order/list/${userId}`, {
     method: 'GET',
     headers: {
       accept: 'application/json',
@@ -165,7 +165,7 @@ export const listAllOrders = (userId, token) => {
 }
 
 export const getStatusValues = (userId, token) => {
-  return fetch(`${api}/order/status-values/${userId}`, {
+  return fetch(`https://petx-ecommercesite.herokuapp.com/api/order/status-values/${userId}`, {
     method: 'GET',
     headers: {
       accept: 'application/json',
@@ -181,7 +181,7 @@ export const getStatusValues = (userId, token) => {
 
 
 export const updateOrderStatus = (userId, token,orderId,status) => {
-  return fetch(`${api}/order/${orderId}/status/${userId}`, {
+  return fetch(`https://petx-ecommercesite.herokuapp.com/api/order/${orderId}/status/${userId}`, {
     method: 'PUT',
     headers: {
       accept: 'application/json',
@@ -198,7 +198,7 @@ export const updateOrderStatus = (userId, token,orderId,status) => {
 
 
 export const getAllProducts = () => {
-  return fetch(`${api}/products?limit=undefined`, {
+  return fetch(`https://petx-ecommercesite.herokuapp.com/api/products?limit=undefined`, {
     method: 'GET',
   })
     .then((response) => response.json())
@@ -209,7 +209,7 @@ export const getAllProducts = () => {
 
 
 export const deleteProduct = (productId,userId, token) => {
-  return fetch(`${api}/product/${productId}/${userId}`, {
+  return fetch(`https://petx-ecommercesite.herokuapp.com/api/product/${productId}/${userId}`, {
     method: 'DELETE',
     headers: {
       accept: 'application/json',
@@ -224,7 +224,7 @@ export const deleteProduct = (productId,userId, token) => {
 }
 
 export const getProduct = (productId) => {
-  return fetch(`${api}/product/${productId}`, {
+  return fetch(`https://petx-ecommercesite.herokuapp.com/api/product/${productId}`, {
     method: 'GET',
   })
     .then((response) => response.json())
@@ -234,7 +234,7 @@ export const getProduct = (productId) => {
 }
 
 export const updateProduct = (productId, userId, token,product) => {
-  return fetch(`${api}/product/${productId}/${userId}`, {
+  return fetch(`https://petx-ecommercesite.herokuapp.com/api/product/${productId}/${userId}`, {
     method: 'PUT',
     headers: {
       accept: 'application/json',
