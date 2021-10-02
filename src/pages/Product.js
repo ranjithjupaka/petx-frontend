@@ -44,20 +44,24 @@ const Product = (props) => {
 
   return (
     <Layout className='container-fuild'>
-      <div className='row '>
-        <div className='col-xl-5 col-md-4 col-sm-5 col-10 ml-5'>
-          {product && <ProductCard product={product} viewProductBtn={false} />}
-        </div>
-        <div className='col-6'>
-          <h4 className='mb-3 mt-2 ml-5'>Related Products</h4>
-          {relatedProduct.map((p, i) => (
-            <div
-              className='col-xl-8 col-md-8 col-sm-6 ml-5 mt-3 mb-3'
-              style={{ minWidth: '250px' }}
-            >
-              <ProductCard product={p} key={i} />
-            </div>
-          ))}
+      <div className='p-4'>
+        <div className='row '>
+          <div className='col-xl-6 col-md-8 col-sm-10 col-12 mx-auto'>
+            {product && (
+              <ProductCard product={product} viewProductBtn={false} />
+            )}
+          </div>
+          <div className='col-xl-5 col-md-8 col-sm-10 col-12 '>
+            <h4 className='mb-3 mt-2 ml-5'>Related Products</h4>
+            {relatedProduct.map((p, i) => (
+              <div
+                className=' mx-auto mt-3 mb-3'
+                style={{ minWidth: '250px' }}
+              >
+                <ProductCard product={p} key={i} />
+              </div>
+            ))}
+          </div>
         </div>
       </div>
     </Layout>

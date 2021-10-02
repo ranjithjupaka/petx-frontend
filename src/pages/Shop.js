@@ -110,41 +110,45 @@ const handleFilters = (filters,sortBy) => {
 
    return (
      <Layout className='container-fuild'>
-       <div className='row'>
-         <div className='col-xl-3 col-md-3 col-sm-4 ml-3 '>
-           {categories.data && categories.data.length > 0 && (
-             <div className='ml-3'>
-               <Checkbox
-                 categories={categories}
-                 handleFilters={(filters) => handleFilters(filters, 'category')}
+       <div className='px-5'>
+         <div className='row'>
+           <div className='col-md-3 col-sm-4 d-flex flex-wrap col-xl-12'>
+             {categories.data && categories.data.length > 0 && (
+               <div className='mr-4 mb-2'>
+                 <Checkbox
+                   categories={categories}
+                   handleFilters={(filters) =>
+                     handleFilters(filters, 'category')
+                   }
+                 />
+               </div>
+             )}
+             <div className=''>
+               <h4>Filter by prices</h4>
+               <RadioButton
+                 prices={prices}
+                 handleFilters={(filters) => handleFilters(filters, 'price')}
                />
              </div>
-           )}
-           <div className='ml-3'>
-             <h4>Filter by prices</h4>
-             <RadioButton
-               prices={prices}
-               handleFilters={(filters) => handleFilters(filters, 'price')}
-             />
            </div>
-         </div>
 
-         <div className='col-8'>
-           <h2 className='mb-4 ml-3'>Products</h2>
-           <div className='row'>
-             {filterResults.map((product, i) => (
-               <div className='col-xl-3 col-md-4 col-sm-6 mb-3 ml-5 '>
-                 <ProductCard key={i} product={product} />
-               </div>
-             ))}
-           </div>
-           <hr />
-           {filterResults.length > 0 && loadMoreButton()}
-           {/* {size > 0 && size >= limit && (
+           <div>
+             <h2 className='mb-4 ml-3'>Products</h2>
+             <div className='row'>
+               {filterResults.map((product, i) => (
+                 <div className='col-xl-3 col-md-4 col-sm-6 mb-3  mx-auto'>
+                   <ProductCard key={i} product={product} />
+                 </div>
+               ))}
+             </div>
+             <hr />
+             {filterResults.length > 0 && loadMoreButton()}
+             {/* {size > 0 && size >= limit && (
              <button className='btn btn-warning mb-5' onClick={loadMore()}>
                Load more
              </button>
            )} */}
+           </div>
          </div>
        </div>
      </Layout>
