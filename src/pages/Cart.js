@@ -26,16 +26,18 @@ const showItems = (items) => {
         <h2>your cart has {`${items.length}`} items</h2>
         <hr />
         {items.map((product, i) => { 
-          return ( 
-          <ProductCard
-            key={i}
-            product={product}
-            showAddCartbtn={false}
-            updateCart={true}
-            showRemovebtn={true}
-            setRun={setRun}
-            run={run}
-          />
+          return (
+            <div className='mt-4'>
+              <ProductCard
+                key={i}
+                product={product}
+                showAddCartbtn={false}
+                updateCart={true}
+                showRemovebtn={true}
+                setRun={setRun}
+                run={run}
+              />
+            </div>
           )
          } )}
       </div>
@@ -48,17 +50,18 @@ const noItems = () => (
   </h2>
 )
 
-    return ( <Layout className='container-fluid'>
-        <div className='row'>
-          <div className='col-6'>
-            {items && items.length > 0
-              ? showItems(items)
-              : noItems()}
-          </div>
-          <div className='col-6'>
-            <h2>Cart Summary</h2>
-            <hr />
-            <Checkout products={items} />
+    return (
+      <Layout className='container-fluid'>
+        <div className='p-4'>
+          <div className='row'>
+            <div className='col-xl-6 col-md-6'>
+              {items && items.length > 0 ? showItems(items) : noItems()}
+            </div>
+            <div className='col-xl-6 col-md-6 mt-5'>
+              <h2>Cart Summary</h2>
+              <hr />
+              <Checkout products={items} />
+            </div>
           </div>
         </div>
       </Layout>

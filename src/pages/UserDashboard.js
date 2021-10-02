@@ -28,7 +28,7 @@ const UserDashboard = () => {
 
     const userLinks = () => {
        return (
-         <div className='card'>
+         <div className='card mb-3'>
            <h4 className='card-header'>User Links</h4>
            <ui className='list-group'>
              <li className='list-group-item'>
@@ -88,10 +88,10 @@ const UserDashboard = () => {
     return (
       <Layout className='container-fluid'>
         <div className="row">
-            <div className="col-3">
+            <div className="col-xl-4 col-md-8 mx-auto">
                 {userLinks()}
             </div>
-            <div className="col-6">
+            <div className="col-xl-6 col-md-8 mx-auto">
                 {userInfo()}
                 {purchaseHistory()}
             </div>

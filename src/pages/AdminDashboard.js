@@ -5,13 +5,13 @@ import Layout from '../components/Layout'
 
 const UserDashboard = () => {
   const {
-    user: {  name, email, role },
+    user: { _id, name, email, role },
   } = isAuthenticated()
 
   const adminLinks = () => {
     return (
-      <div className='card'>
-        <h4 className='card-header'>User Links</h4>
+      <div className='card mb-3'>
+        <h4 className='card-header'>Admin Links</h4>
         <ui className='list-group'>
           <li className='list-group-item'>
             <Link to='/category/create'>Create Category</Link>
@@ -25,6 +25,12 @@ const UserDashboard = () => {
           <li className='list-group-item'>
             <Link to='/admin/products'>Manage Products</Link>
           </li>
+          <li className='list-group-item'>
+            <Link to={`/profile/${_id}`}>Profile update</Link>
+          </li>
+          <li className='list-group-item'>
+            <Link to='/user/dashboard'>User Dashboard</Link>
+          </li>
         </ui>
       </div>
     )
@@ -32,7 +38,7 @@ const UserDashboard = () => {
 
   const adminInfo = () => {
     return (
-      <div className='card mb-5'>
+      <div className='card mb-3 mt-3'>
         <h2 className='card-header'>Admin Information</h2>
         <ui className='list-group'>
           <li className='list-group-item'>{name}</li>
@@ -47,8 +53,8 @@ const UserDashboard = () => {
   return (
     <Layout className='container-fluid'>
       <div className='row'>
-        <div className='col-3'>{adminLinks()}</div>
-        <div className='col-6'>
+        <div className='col-xl-4 col-md-8 mx-auto'>{adminLinks()}</div>
+        <div className='col-xl-6 col-md-8 mx-auto'>
           {adminInfo()}
         </div>
       </div>
