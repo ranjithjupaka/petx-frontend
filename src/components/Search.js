@@ -66,10 +66,12 @@ if (results.length > 0) {
 const searchedProducts = (results = []) => {
   return (
     <div>
-      <h2 className='mt-2 mb-2 ml-5'>{searchResultMsg(searched, results)}</h2>
+      <h2 className='mt-2 mb-2 mx-auto'>
+        {searchResultMsg(searched, results)}
+      </h2>
       <div className='row'>
         {results.map((product, i) => (
-          <div className='col-4 mb-3 ml-5 '>
+          <div className='col-12 col-md-6 col-xl-4 mb-3'>
             <ProductCard key={i} product={product} />
           </div>
         ))}
