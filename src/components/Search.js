@@ -80,7 +80,7 @@ const searchedProducts = (results = []) => {
 
 const searchForm = () => (
   <form onSubmit={(e) => handleSubmit(e)}>
-    <span className='input-group-text'>
+    <span className='input-group-text d-flex flex-wrap justify-content-center'>
       <div className='input-group input-group-lg'>
         <div className='input-group-prepend'>
           <select
@@ -108,7 +108,7 @@ const searchForm = () => (
       <div className='btn input-group-append '>
         <button
           className='input-group-text btn-sm px-4'
-          style={{ border: '2px solid white' }}
+          style={{ border: '4px solid white',backgroundColor:'white',fontWeight:'bold' }}
         >
           Search
         </button>
@@ -118,7 +118,7 @@ const searchForm = () => (
 )
   return (
     <div className='row'>
-      <div className='container mb-3 col-sm-8 '>{searchForm()}</div>
+      <div className='container mb-3 col-sm-12 col-lg-10 col-md-10 col-10'>{searchForm()}</div>
       <div className='container-fluid mb-3 '>{searchedProducts(results)}</div>
     </div>
   )
